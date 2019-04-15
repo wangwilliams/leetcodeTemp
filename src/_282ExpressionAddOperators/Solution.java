@@ -29,6 +29,7 @@ public class Solution {
      * 并且保证了基本操作(add, remove, contains)是lg(n)的时间复杂度.
      */
     public static boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        //利用红黑树lgn的速度用来设置一个动态窗口,然后在数组上游走
         if (nums == null || nums.length == 0 || k <= 0 || t < 0) return false;
         TreeSet<Long> set = new TreeSet<>();
         for (int i = 0; i < nums.length; ++i) {

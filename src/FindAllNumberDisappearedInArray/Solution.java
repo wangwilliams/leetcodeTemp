@@ -1,8 +1,5 @@
 package FindAllNumberDisappearedInArray;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

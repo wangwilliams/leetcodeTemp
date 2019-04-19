@@ -24,7 +24,17 @@ public class NumbersOfIsland {
         }
 
     }*/
-
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String[] presorder = sc.nextLine().split(" ");
+        int[] nums = new int[presorder.length];
+        for (int i=0;i<presorder.length;i++){
+            nums[i] = Integer.parseInt(presorder[i]);
+        }
+        int[] ans = asteroidCollision(nums);
+        for (int i=0;i<ans.length;i++)
+        System.out.print(nums[i]+" ");
+    }
     public static int[] asteroidCollision(int[] asteroids) {
         if (asteroids.length < 2){
             return asteroids;
@@ -46,8 +56,14 @@ public class NumbersOfIsland {
                 break;
             }
             int tempInt = asteroids[i];
-            while (stack1.isEmpty() && Math.abs(stack1.peek()) < Math.abs(tempInt)){
+
+            while (!stack1.isEmpty() && Math.abs(stack1.peek()) < Math.abs(tempInt)){
                 stack1.pop();
+            }
+            if (!stack1.isEmpty() && Math.abs(stack1.peek()) == Math.abs(tempInt)){
+                i++;
+                stack1.pop();
+                continue;
             }
             if (stack1.isEmpty()){
                 stack.push(tempInt);
